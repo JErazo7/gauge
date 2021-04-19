@@ -1,4 +1,4 @@
-# gauge
+# pretty_gauge
 Fully customizable Gauge widget for Flutter
 
 <img src="https://github.com/JErazo7/gauge/raw/master/GaugeExample.jpg" height="480px" >
@@ -7,14 +7,14 @@ Fully customizable Gauge widget for Flutter
 In your pubspec.yaml, add the following dependency
 ```yaml
 dependencies:
-  gauge: 1.0.0
+  pretty_gauge: 1.0.0
 ```
 
 ## Example Usage:
 ```dart
-import 'package:gauge/gauge.dart';
+import 'package:pretty_gauge/pretty_gauge.dart';
 
-Gauge(
+PrettyGauge(
     gaugeSize: 200,
     segments: [
         GaugeSegment('Low', 20, Colors.red),

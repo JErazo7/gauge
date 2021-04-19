@@ -67,13 +67,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  gauge:
-    dependency: "direct dev"
-    description:
-      path: ".."
-      relative: true
-    source: path
-    version: "1.0.0"
   matcher:
     dependency: transitive
     description:
@@ -95,6 +88,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.0"
+  pretty_gauge:
+    dependency: "direct dev"
+    description:
+      path: ".."
+      relative: true
+    source: path
+    version: "1.0.0"
   sky_engine:
     dependency: transitive
     description: flutter

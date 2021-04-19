@@ -1,7 +1,6 @@
-name: gauge
+name: pretty_gauge
 description: Fully customizable Gauge widget for Flutter with options for multiple segments, colors and customizable styling for displaying current value and text
 version: 1.0.0
-author: Josue Erazo
 homepage: https://github.com/JErazo7/gauge
 
 environment:

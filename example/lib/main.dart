@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gauge/gauge.dart';
+import 'package:pretty_gauge/pretty_gauge.dart';
 
 void main() => runApp(const MyApp());
 
@@ -24,7 +24,7 @@ class _MyAppState extends State<MyApp> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     Row(children: <Widget>[
-                      Gauge(
+                      PrettyGauge(
                         gaugeSize: 200,
                         segments: [
                           GaugeSegment('Low', 20, Colors.red),
@@ -35,7 +35,7 @@ class _MyAppState extends State<MyApp> {
                         displayWidget: const Text('Fuel in tank',
                             style: TextStyle(fontSize: 12)),
                       ),
-                      Gauge(
+                      PrettyGauge(
                         gaugeSize: 200,
                         segments: [
                           GaugeSegment('Critically Low', 10, Colors.red),
@@ -51,7 +51,7 @@ class _MyAppState extends State<MyApp> {
                       ),
                     ]),
                     Row(children: <Widget>[
-                      Gauge(
+                      PrettyGauge(
                         gaugeSize: 100,
                         segments: [
                           GaugeSegment('Low', 20, Colors.blue[200]!),
@@ -62,7 +62,7 @@ class _MyAppState extends State<MyApp> {
                         displayWidget:
                             const Text('Temp', style: TextStyle(fontSize: 12)),
                       ),
-                      Gauge(
+                      PrettyGauge(
                         gaugeSize: 100,
                         segments: [
                           GaugeSegment('Critically Low', 10, Colors.red),
@@ -77,7 +77,7 @@ class _MyAppState extends State<MyApp> {
                         displayWidget:
                             const Text('Fuel', style: TextStyle(fontSize: 12)),
                       ),
-                      Gauge(
+                      PrettyGauge(
                         gaugeSize: 100,
                         minValue: 30,
                         maxValue: 150,
@@ -91,7 +91,7 @@ class _MyAppState extends State<MyApp> {
                         displayWidget:
                             const Text('Pulse', style: TextStyle(fontSize: 12)),
                       ),
-                      Gauge(
+                      PrettyGauge(
                         minValue: 0,
                         maxValue: 150,
                         gaugeSize: 100,
