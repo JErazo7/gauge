@@ -122,6 +122,9 @@ class PrettyGauge extends StatefulWidget {
   ///Current value of the Gauge
   final double? currentValue;
 
+  ///Current value decimal point places
+  final int currentValueDecimalPlaces;
+
   ///Custom color for the needle on the Gauge. Defaults to Colors.black
   final Color needleColor;
 
@@ -154,6 +157,7 @@ class PrettyGauge extends StatefulWidget {
       this.minValue = 0,
       this.maxValue = 100.0,
       this.currentValue,
+      this.currentValueDecimalPlaces = 1,
       this.needleColor = Colors.black,
       this.defaultSegmentColor = Colors.grey,
       this.valueWidget,
@@ -276,7 +280,7 @@ class _PrettyGaugeState extends State<PrettyGauge> {
               children: <Widget>[
                 widget.displayWidget ?? Container(),
                 widget.valueWidget ??
-                    Text('${_currentValue.toStringAsFixed(1)}',
+                    Text('${_currentValue.toStringAsFixed(widget.currentValueDecimalPlaces)}',
                         style: const TextStyle(fontSize: 10)),
               ],
             ),
