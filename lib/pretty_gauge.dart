@@ -204,12 +204,16 @@ class _PrettyGaugeState extends State<PrettyGauge> {
   Widget build(BuildContext context) {
     List<GaugeSegment>? _segments = widget.segments;
     double? _currentValue = widget.currentValue;
+    int _currentValueDecimalPlaces = widget.currentValueDecimalPlaces;
 
     if (widget.currentValue! < widget.minValue) {
       _currentValue = widget.minValue;
     }
     if (widget.currentValue! > widget.maxValue) {
       _currentValue = widget.maxValue;
+    }
+    if (_currentValueDecimalPlaces < 0) {
+      _currentValueDecimalPlaces = 0;
     }
 
     //If segments is supplied, validate that the sum of all segment sizes = (maxValue - minValue)
@@ -280,7 +284,8 @@ class _PrettyGaugeState extends State<PrettyGauge> {
               children: <Widget>[
                 widget.displayWidget ?? Container(),
                 widget.valueWidget ??
-                    Text('${_currentValue.toStringAsFixed(widget.currentValueDecimalPlaces)}',
+                    Text(
+                        '${_currentValue.toStringAsFixed(_currentValueDecimalPlaces)}',
                         style: const TextStyle(fontSize: 10)),
               ],
             ),
