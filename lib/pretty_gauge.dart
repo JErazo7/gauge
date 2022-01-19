@@ -212,9 +212,13 @@ class _PrettyGaugeState extends State<PrettyGauge> {
     if (widget.currentValue! > widget.maxValue) {
       _currentValue = widget.maxValue;
     }
+    // Make sure the decimal place if supplied meets Darts bounds (0-20)
     if (_currentValueDecimalPlaces < 0) {
       _currentValueDecimalPlaces = 0;
     }
+     if (_currentValueDecimalPlaces > 20) {
+      _currentValueDecimalPlaces = 20;
+    }   
 
     //If segments is supplied, validate that the sum of all segment sizes = (maxValue - minValue)
     if (_segments != null) {
