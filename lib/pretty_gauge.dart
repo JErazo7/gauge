@@ -122,6 +122,9 @@ class PrettyGauge extends StatefulWidget {
   ///Current value of the Gauge
   final double? currentValue;
 
+  ///Current value decimal point places
+  final int currentValueDecimalPlaces;
+
   ///Custom color for the needle on the Gauge. Defaults to Colors.black
   final Color needleColor;
 
@@ -154,6 +157,7 @@ class PrettyGauge extends StatefulWidget {
       this.minValue = 0,
       this.maxValue = 100.0,
       this.currentValue,
+      this.currentValueDecimalPlaces = 1,
       this.needleColor = Colors.black,
       this.defaultSegmentColor = Colors.grey,
       this.valueWidget,
@@ -200,6 +204,7 @@ class _PrettyGaugeState extends State<PrettyGauge> {
   Widget build(BuildContext context) {
     List<GaugeSegment>? _segments = widget.segments;
     double? _currentValue = widget.currentValue;
+    int _currentValueDecimalPlaces = widget.currentValueDecimalPlaces;
 
     if (widget.currentValue! < widget.minValue) {
       _currentValue = widget.minValue;
@@ -207,6 +212,13 @@ class _PrettyGaugeState extends State<PrettyGauge> {
     if (widget.currentValue! > widget.maxValue) {
       _currentValue = widget.maxValue;
     }
+    // Make sure the decimal place if supplied meets Darts bounds (0-20)
+    if (_currentValueDecimalPlaces < 0) {
+      _currentValueDecimalPlaces = 0;
+    }
+     if (_currentValueDecimalPlaces > 20) {
+      _currentValueDecimalPlaces = 20;
+    }   
 
     //If segments is supplied, validate that the sum of all segment sizes = (maxValue - minValue)
     if (_segments != null) {
@@ -276,7 +288,8 @@ class _PrettyGaugeState extends State<PrettyGauge> {
               children: <Widget>[
                 widget.displayWidget ?? Container(),
                 widget.valueWidget ??
-                    Text('${_currentValue.toStringAsFixed(1)}',
+                    Text(
+                        '${_currentValue.toStringAsFixed(_currentValueDecimalPlaces)}',
                         style: const TextStyle(fontSize: 10)),
               ],
             ),
